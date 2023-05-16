@@ -40,7 +40,7 @@ for bar in bars.patches:
 ax.set_xticklabels(df_gu['행정동명'], rotation=0,fontproperties=fontprop) 
 st.pyplot(fig)
 
-fn = select+'chart.png'
+fn = select+'_chart.png'
 img = io.BytesIO()
 plt.savefig(img, format='png')
  
@@ -57,7 +57,7 @@ csv = convert_df(df_gu)
 st.download_button(
    "현재 data.csv 다운로드",
    csv,
-   select+"data.csv",
+   select+"_data.csv",
    "text/csv",
    key='download-csv'
 )
