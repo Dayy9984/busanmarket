@@ -2,10 +2,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
-import matplotlib.style
 import matplotlib.font_manager as fm
 fm.get_fontconfig_fonts()
-font_location = './NanumBarunGothicLight.ttf' 
+font_location = 'stapp/NanumBarunGothicLight.ttf' 
 font_name = fm.FontProperties(fname=font_location).get_name()
 matplotlib.rc('font', family=font_name)
 
