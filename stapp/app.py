@@ -30,10 +30,10 @@ df_gu = df_count[df_count['시군구명'] == select]
 c = st.color_picker('차트색상선택', '#1f77b4')
 
 
-fig, ax = plt.subplots(figsize=(10, 6)) 
+fig, ax = plt.subplots(figsize=(12, 8)) 
 bars = df_gu.plot(kind='bar',legend=False, color=c,ax=ax)  
-ax.set_ylabel("Count")   
-ax.set_title(select,fontproperties=fontprop)  
+ax.set_ylabel("Count",fontproperties=fontprop)   
+ax.set_title(select,fontproperties=fontprop,size=20)  
 for bar in bars.patches:
     yval = bar.get_height()
     ax.text(bar.get_x() + bar.get_width()/2, yval + 0.01, yval, ha='center', va='bottom') 
