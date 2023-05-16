@@ -33,7 +33,7 @@ c = st.color_picker('차트색상선택', '#1f77b4')
 fig, ax = plt.subplots(figsize=(10, 6)) 
 bars = df_gu.plot(kind='bar',legend=False, color=c,ax=ax)  
 ax.set_ylabel("Count")   
-ax.set_title("강서구청",fontproperties=fontprop)  
+ax.set_title(select,fontproperties=fontprop)  
 for bar in bars.patches:
     yval = bar.get_height()
     ax.text(bar.get_x() + bar.get_width()/2, yval + 0.01, yval, ha='center', va='bottom') 
@@ -51,6 +51,16 @@ btn = st.download_button(
    mime="image/png"
 )
 
+def convert_df(df):
+   return df.to_csv(index=False).encode('utf-8')
+csv = convert_df(df_gu)
+st.download_button(
+   "Press to Download",
+   csv,
+   "file.csv",
+   "text/csv",
+   key='download-csv'
+)
 
 
   
