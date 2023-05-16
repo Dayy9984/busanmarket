@@ -45,7 +45,7 @@ img = io.BytesIO()
 plt.savefig(img, format='png')
  
 btn = st.download_button(
-   label="Download image",
+   label="차트 image 다운로드",
    data=img,
    file_name=fn,
    mime="image/png"
@@ -55,9 +55,9 @@ def convert_df(df):
    return df.to_csv(index=False).encode('utf-8')
 csv = convert_df(df_gu)
 st.download_button(
-   "Press to Download",
+   "현재 data.csv 다운로드",
    csv,
-   "file.csv",
+   "data.csv",
    "text/csv",
    key='download-csv'
 )
