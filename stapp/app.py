@@ -2,6 +2,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
+from matplotlib import rc
 import matplotlib.font_manager as fm
 fm._rebuild()
 fm.get_fontconfig_fonts()
