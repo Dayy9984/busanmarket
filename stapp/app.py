@@ -20,7 +20,7 @@ df_count = df_count.reset_index()
 df_count.columns = ['시군구명','행정동명', 'count']
 df_count = pd.DataFrame(df_count)
 
-gu = list(set(df_count['시군구명']))
+gu = list(sorted(set(df_count['시군구명'])))
 select = st.selectbox('시군구명을 선택하세요',gu)
 df_count = df_count.sort_values(by='count', ascending=True)
 df_gu = df_count[df_count['시군구명'] == select]
