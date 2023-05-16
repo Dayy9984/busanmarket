@@ -2,7 +2,12 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
-
+import matplotlib.style
+import matplotlib.font_manager as fm
+fm.get_fontconfig_fonts()
+font_location = './NanumBarunGothicLight.ttf' 
+font_name = fm.FontProperties(fname=font_location).get_name()
+matplotlib.rc('font', family=font_name)
 
 df = pd.read_csv('stapp/busan.csv',encoding='cp949')
 df_sorted_by_values = df.sort_values(by='시군구명')
