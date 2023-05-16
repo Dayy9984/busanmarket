@@ -2,12 +2,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
-from matplotlib import rc
 import matplotlib.font_manager as fm
-fm.get_fontconfig_fonts()
-font_location = 'stapp/NanumBarunGothicLight.ttf' 
-font_name = fm.FontProperties(fname=font_location).get_name()
-matplotlib.rc('font', family=font_name)
+from pathlib import Path
+import matplotlib.patches as mpatches
+font_path = Path('stapp/NanumBarunGothicLight.ttf')
+fontprop = fm.FontProperties(fname=font_path, size=10)
 
 df = pd.read_csv('stapp/busan.csv')
 df_sorted_by_values = df.sort_values(by='시군구명')
@@ -29,11 +28,11 @@ df_gu = df_count[df_count['시군구명'] == select]
 fig, ax = plt.subplots(figsize=(10, 6)) 
 bars = df_gu.plot(kind='bar',legend=False, ax=ax)  
 ax.set_ylabel("Count")   
-ax.set_title("강서구청")  
+ax.set_title("강서구청",fontproperties=fontprop)  
 for bar in bars.patches:
     yval = bar.get_height()
     ax.text(bar.get_x() + bar.get_width()/2, yval + 0.01, yval, ha='center', va='bottom') 
-ax.set_xticklabels(df_gu['행정동명'], rotation=0) 
+ax.set_xticklabels(df_gu['행정동명'], rotation=0,fontproperties=fontprop) 
 st.pyplot(fig)
 
 
