@@ -40,6 +40,17 @@ for bar in bars.patches:
 ax.set_xticklabels(df_gu['행정동명'], rotation=0,fontproperties=fontprop) 
 st.pyplot(fig)
 
+fn = 'scatter.png'
+img = io.BytesIO()
+plt.savefig(img, format='png')
+ 
+btn = st.download_button(
+   label="Download image",
+   data=img,
+   file_name=fn,
+   mime="image/png"
+)
+
 
 
   
