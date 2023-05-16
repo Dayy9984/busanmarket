@@ -8,6 +8,8 @@ import matplotlib.patches as mpatches
 font_path = Path('stapp/NanumBarunGothicLight.ttf')
 fontprop = fm.FontProperties(fname=font_path, size=10)
 
+st.title("부산 구/동별 상권 그래프")
+
 df = pd.read_csv('stapp/busan.csv')
 df_sorted_by_values = df.sort_values(by='시군구명')
 df_sorted_by_values = df_sorted_by_values.sort_values(by='행정동명')
@@ -24,6 +26,9 @@ gu = list(sorted(set(df_count['시군구명'])))
 select = st.selectbox('시군구명을 선택하세요',gu)
 df_count = df_count.sort_values(by='count', ascending=True)
 df_gu = df_count[df_count['시군구명'] == select]
+
+color = st.color_picker('차트색상선택', '#1f77b4')
+
 
 fig, ax = plt.subplots(figsize=(10, 6)) 
 bars = df_gu.plot(kind='bar',legend=False, ax=ax)  
