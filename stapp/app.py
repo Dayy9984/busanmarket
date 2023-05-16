@@ -27,11 +27,11 @@ select = st.selectbox('시군구명을 선택하세요',gu)
 df_count = df_count.sort_values(by='count', ascending=True)
 df_gu = df_count[df_count['시군구명'] == select]
 
-color = st.color_picker('차트색상선택', '#1f77b4')
+c = st.color_picker('차트색상선택', '#1f77b4')
 
 
 fig, ax = plt.subplots(figsize=(10, 6)) 
-bars = df_gu.plot(kind='bar',legend=False, ax=ax)  
+bars = df_gu.plot(kind='bar',legend=False, color=c,ax=ax)  
 ax.set_ylabel("Count")   
 ax.set_title("강서구청",fontproperties=fontprop)  
 for bar in bars.patches:
