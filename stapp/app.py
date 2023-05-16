@@ -1,10 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
-from matplotlib import font_manager, rc
 
 
-df = pd.read_csv('.\\busan.csv')
+df = pd.read_csv('stapp/busan.csv')
 df_sorted_by_values = df.sort_values(by='시군구명')
 df_sorted_by_values = df_sorted_by_values.sort_values(by='행정동명')
 df_s = df_sorted_by_values[['시군구명','행정동명']]
