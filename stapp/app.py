@@ -41,7 +41,7 @@ if changemap:
     df_dong_xy = df_dong_xy[['경도','위도']]
     df_dong_xy = pd.DataFrame(df_dong_xy)
     df_dong_xy.columns = ['lat', 'lon']
-    st.map(df_dong_xy,columns=['lat', 'lon'])
+    st.map(df_dong_xy)
     
     
 else:
