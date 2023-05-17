@@ -30,7 +30,7 @@ if changemap:
     df_gu = df_count[df_count['시군구명'] == select]
     
     dong = list(sorted(set(df_gu['행정동명'])))
-    select_dong = st.selectbox('행정동명을 선택하세요',gu)
+    select_dong = st.selectbox('행정동명을 선택하세요',dong)
     
     
     
