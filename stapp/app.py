@@ -37,9 +37,10 @@ if changemap:
     df_xy = df_sorted_by_values[['시군구명','행정동명','경도','위도']]
     df_gu_xy = df_xy[df_xy['시군구명'] == select]
     
-    df_dong_xy = df_xy[df_xy['행정동명'] == select_dong]
-    df_dong_xy = df_gu_xy[['경도','위도']]
+    df_dong_xy = df_gu_xy[df_xy['행정동명'] == select_dong]
+    df_dong_xy = df_dong_xy[['경도','위도']]
     df_dong_xy = pd.DataFrame(df_dong_xy)
+    df_dong_xy.columns = ['lat', 'lon']
     st.map(df_dong_xy,columns=['lat', 'lon'])
     
     
