@@ -40,7 +40,7 @@ if changemap:
     df_dong_xy = df_gu_xy[df_gu_xy['행정동명'] == select_dong]
     df_dong_xy = df_dong_xy[['경도','위도']]
     df_dong_xy = pd.DataFrame(df_dong_xy)
-    df_dong_xy.columns = ['lat', 'lon']
+    df_dong_xy.columns = ['lon','lat']
     st.map(df_dong_xy)
     
     
